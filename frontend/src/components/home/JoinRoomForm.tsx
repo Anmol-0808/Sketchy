@@ -41,28 +41,30 @@ export function JoinRoomForm() {
         <Link href="/">Sketchy</Link>
       </section>
 
-      <form className="join-panel form-page-panel" onSubmit={handleJoin}>
-        <div className="panel-title">
-          <p className="eyebrow">Quick play</p>
-          <h2>Join Game</h2>
-        </div>
-        <label>
-          Player name
-          <input value={name} onChange={(event) => setName(event.target.value)} maxLength={24} />
-        </label>
-        <label>
-          Room code
-          <input value={joinCode} onChange={(event) => setJoinCode(event.target.value)} maxLength={8} />
-        </label>
-        <button className="primary-button">Join Room</button>
-        <button className="secondary-button" type="button" onClick={handleJoinPublic}>
-          Join Public Room
-        </button>
-        <Link className="back-link" href="/">
-          Back
-        </Link>
-        {error && <p className="error-text">{error}</p>}
-      </form>
+      <div className="form-page-actions join-page-actions">
+        <form className="join-panel form-page-panel" onSubmit={handleJoin}>
+          <div className="panel-title">
+            <p className="eyebrow">Quick play</p>
+            <h2>Join Game</h2>
+          </div>
+          <label>
+            Player name
+            <input value={name} onChange={(event) => setName(event.target.value)} maxLength={24} />
+          </label>
+          <label>
+            Room code
+            <input value={joinCode} onChange={(event) => setJoinCode(event.target.value)} maxLength={8} />
+          </label>
+          <button className="primary-button">Join Room</button>
+          <button className="secondary-button" type="button" onClick={handleJoinPublic}>
+            Join Public Room
+          </button>
+          <Link className="back-link" href="/">
+            Back
+          </Link>
+          {error && <p className="error-text">{error}</p>}
+        </form>
+      </div>
     </main>
   );
 }
