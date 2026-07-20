@@ -13,6 +13,9 @@ class Base(DeclarativeBase):
 def _normalize_url(url: str | None) -> str | None:
     if not url:
         return None
+    url = url.strip()
+    if url.startswith("postgres://"):
+        return url.replace("postgres://", "postgresql+asyncpg://", 1)
     if url.startswith("postgresql://"):
         return url.replace("postgresql://", "postgresql+asyncpg://", 1)
     return url
